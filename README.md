@@ -32,7 +32,7 @@ $make run
 $sudo echo "127.0.0.1 backstage" >> /etc/hosts
 ```
 
-## ☕ Acessing <nome_do_projeto>
+## ☕ Acessing <backstage.io>
 
 To access <backstage.io>, open the address in your browser:
 
