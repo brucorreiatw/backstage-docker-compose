@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  backstage:
+    build: .
+    container_name: backstage
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - type: bind
+        source: ./config/app-config.yaml
+        target: /app/app-config.yaml
+    env_file:
+      - ./config/backstage.vars
+    ports:
+      - "7000:7000"
+      - "3000:3000"
+  postgres:
+    image: postgres:9.6
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    container_name: postgres
+    env_file:
+      - ./config/postgres.vars
