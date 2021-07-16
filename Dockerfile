@@ -2,7 +2,7 @@ FROM node:14-buster-slim
 
 WORKDIR /app
 
-COPY ./temp . 
+COPY ./backstage . 
 
 RUN yarn install --frozen-lockfile && \
     yarn tsc && \

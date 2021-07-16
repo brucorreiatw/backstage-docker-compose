@@ -5,7 +5,7 @@ stop:
 
 build: stop
 	$(MAKE) clean
-	@git clone git@github.com:backstage/backstage.git temp
+	@git clone git@github.com:backstage/backstage.git
 	@docker-compose build
 	$(MAKE) clean
 
@@ -16,4 +16,4 @@ logs:
 	@docker-compose logs -f
 
 clean:
-	@rm -rf ./temp
+	@rm -rf ./backstage
