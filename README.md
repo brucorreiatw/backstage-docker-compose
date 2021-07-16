@@ -4,7 +4,7 @@
 
 ### Adjustments and improvements
 
-This project is still in its infancy and has the following points for improvement.
+This project is still starting and needs the following improvements.
 
 - [ ] Use multi stage in dockerfile
 - [ ] Create a docker registry to store images.
