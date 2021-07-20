@@ -2,6 +2,8 @@ version: '3.9'
 services:
   backstage:
     build: .
+    command: >
+      bash -c "(yarn start &) ; cd packages/backend ; yarn start"
     container_name: backstage
     restart: always
     depends_on:
@@ -26,3 +28,10 @@ services:
     container_name: postgres
     env_file:
       - ./config/postgres.vars
+  dind:
+    image: docker:dind
+    privileged: yes
+    restart: always
+    container_name: dind
+    env_file:
+      - ./config/dind.vars
